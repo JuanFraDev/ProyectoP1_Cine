@@ -11,7 +11,7 @@ private:
     float precioBoleto;
     Pelicula pelicula[5];
     Boleto boleto;
-    Sala sala;
+    Sala sala[5];
 public:
     Cine();
     void setPeliculas();

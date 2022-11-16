@@ -51,6 +51,8 @@ void Sala::getSala()
     for(int i = 1; i < 6; i++){
         cout << i << "\t";
     }
+    cout << endl;
+    cout << endl;
 }
 
 bool Sala::setAsiento()

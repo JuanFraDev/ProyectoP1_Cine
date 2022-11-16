@@ -2,6 +2,7 @@
 #define PELICULA_H
 #include <string>
 
+
 using namespace std;
 
 class Pelicula
@@ -12,6 +13,7 @@ private:
     int duracion;
     bool estreno;
     string hora;
+
 public:
     Pelicula();
     int getID() const;
@@ -25,6 +27,7 @@ public:
     const string &getHora() const;
     void setHora(const string &newHora);
     string toString();
+
 };
 
 #endif // PELICULA_H

@@ -45,13 +45,25 @@ void Cine::mostrarCartelera()
 
 void Cine::setSala()
 {
-    this->sala.setSala();
+    this->sala[0].setSala();
+    this->sala[1].setSala();
+    this->sala[2].setSala();
+    this->sala[3].setSala();
+    this->sala[4].setSala();
 }
 
 void Cine::mostrarSala()
 {
-
-    this->sala.getSala();
+    int id;
+    cout << "Ingrese el id de la pelicula: ";
+    cin >> id;
+    while (id < 1 || id > 5){
+        cout << "Ingrese un id valido:_";
+        cin >> id;
+    }
+    cout << endl;
+    cout << pelicula[id-1].toString();
+    this->sala[id-1].getSala();
 }
 
 void Cine::comprarBoleto()
@@ -68,7 +80,7 @@ void Cine::comprarBoleto()
     cout << "Ingrese la cantidad de boletos que desea comprar: ";
     cin >> num;
     cout << "Seleccione los asientos: " << endl;
-    mostrarSala();
+    this->sala[id-1].getSala();
     for(int i = 1; i <= num; i++){
         cout << "\nIngrese su asiento: ";
         getline(cin>>ws, asiento);
@@ -110,9 +122,9 @@ void Cine::comprarBoleto()
                 fil = 'N';
             }
         }
-        this->sala.setFila(fil);
-        this->sala.setNumero(col);
-        this->sala.setAsiento();
+        this->sala[id-1].setFila(fil);
+        this->sala[id-1].setNumero(col);
+        this->sala[id-1].setAsiento();
     }
 
 

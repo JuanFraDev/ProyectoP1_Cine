@@ -30,12 +30,14 @@ int main()
         case 3:
             cine.comprarBoleto();
             break;
+        case 4:
+            cout << endl;
+            cout << "Gracias por visitar Cine Meowing!" << endl;
+            cout << "\tVuelva Pronto!"<< endl;
+            cout << endl;
+            break;
         }
     } while (selec != 4);
-
-
-
-    cine.mostrarSala();
 
     //Para impresion de boletos
     /*char corneris = -55, vertical = -70, cornerii = -56, cornersd = -69, cornerid = -68, horizontal = -51;
