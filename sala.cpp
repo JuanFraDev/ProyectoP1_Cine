@@ -107,6 +107,7 @@ bool Sala::setAsiento()
         }
         break;
     }
+    cout << "Hola";
 }
 
 Sala::Sala()
