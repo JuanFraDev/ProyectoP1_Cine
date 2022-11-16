@@ -98,7 +98,6 @@ void Cine::comprarBoleto()
             fil = 'N';
         }
     }
-    cout << "Git";
     this->sala.setFila(fil);
     this->sala.setNumero(col);
     this->sala.setAsiento();
