@@ -50,40 +50,32 @@ void Cine::setSala()
 
 void Cine::mostrarSala()
 {
+
     this->sala.getSala();
 }
 
 void Cine::comprarBoleto()
 {
     string asiento, fila, columna, valid = "";
-    int col;
+    int col, num, id;
     char fil;
-    cout << "\nIngrese su asiento: ";
-    getline(cin>>ws, asiento);
-    valid = asiento.substr(2,1);
-    fila = asiento.substr(0,1);
-    columna = asiento.substr(1,1);
-    col = stoi(columna);
-    if(fila == "A" || fila == "a"){
-        fil = 'A';
-    } else if (fila == "B" || fila == "b"){
-        fil = 'B';
-    } else if (fila == "C" || fila == "c"){
-        fil = 'C';
-    } else if (fila == "D" || fila == "d"){
-        fil = 'D';
-    } else if (fila == "E" || fila == "e"){
-        fil = 'E';
-    } else {
-        fil = 'N';
+    cout << "Ingrese el ID de la pelicula: ";
+    cin >> id;
+    while(id < 1 || id > 5){
+        cout << "Ingrese un id valido: ";
+        cin >> id;
     }
-    while ((col < 1 || col > 5) || (fil == 'N') || (valid != "")){
-        cout << "Ingrese un asiento correcto [Ejemplo: A3]: ";
+    cout << "Ingrese la cantidad de boletos que desea comprar: ";
+    cin >> num;
+    cout << "Seleccione los asientos: " << endl;
+    mostrarSala();
+    for(int i = 1; i <= num; i++){
+        cout << "\nIngrese su asiento: ";
         getline(cin>>ws, asiento);
         valid = asiento.substr(2,1);
+        fila = asiento.substr(0,1);
         columna = asiento.substr(1,1);
         col = stoi(columna);
-        fila = asiento.substr(0,1);
         if(fila == "A" || fila == "a"){
             fil = 'A';
         } else if (fila == "B" || fila == "b"){
@@ -97,9 +89,31 @@ void Cine::comprarBoleto()
         } else {
             fil = 'N';
         }
+        while ((col < 1 || col > 5) || (fil == 'N') || (valid != "")){
+            cout << "Ingrese un asiento correcto [Ejemplo: A3]: ";
+            getline(cin>>ws, asiento);
+            valid = asiento.substr(2,1);
+            columna = asiento.substr(1,1);
+            col = stoi(columna);
+            fila = asiento.substr(0,1);
+            if(fila == "A" || fila == "a"){
+                fil = 'A';
+            } else if (fila == "B" || fila == "b"){
+                fil = 'B';
+            } else if (fila == "C" || fila == "c"){
+                fil = 'C';
+            } else if (fila == "D" || fila == "d"){
+                fil = 'D';
+            } else if (fila == "E" || fila == "e"){
+                fil = 'E';
+            } else {
+                fil = 'N';
+            }
+        }
+        this->sala.setFila(fil);
+        this->sala.setNumero(col);
+        this->sala.setAsiento();
     }
-    this->sala.setFila(fil);
-    this->sala.setNumero(col);
-    this->sala.setAsiento();
+
 
 }

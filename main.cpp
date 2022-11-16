@@ -7,10 +7,34 @@ int main()
 {
     Cine cine;
     cine.setPeliculas();
-    cine.mostrarCartelera();
     cine.setSala();
-    cine.mostrarSala();
-    cine.comprarBoleto();
+    int selec;
+    cout << "\t\t= = = = C I N E  M E O W I N G = = = =\n" << endl;
+    do{
+        cout << "\t= = MENU PRINCIPAL = =" << endl;
+        cout << "1. Mostrar Cartelera" << endl;
+        cout << "2. Mostrar Sala" << endl;
+        cout << "3. Comprar Boletos" << endl;
+        cout << "4. Salir" << endl;
+        cout << "Ingrese su opcion: ";
+        cin >> selec;
+        switch(selec){
+        case 1:
+            cout << endl;
+            cine.mostrarCartelera();
+            cout << endl;
+            break;
+        case 2:
+            cine.mostrarSala();
+            break;
+        case 3:
+            cine.comprarBoleto();
+            break;
+        }
+    } while (selec != 4);
+
+
+
     cine.mostrarSala();
 
     //Para impresion de boletos
