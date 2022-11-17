@@ -15,7 +15,8 @@ int main()
         cout << "1. Mostrar Cartelera" << endl;
         cout << "2. Mostrar Sala" << endl;
         cout << "3. Comprar Boletos" << endl;
-        cout << "4. Salir" << endl;
+        cout << "4. Resumen compra" << endl;
+        cout << "5. Salir" << endl;
         cout << "Ingrese su opcion: ";
         cin >> selec;
         switch(selec){
@@ -31,13 +32,16 @@ int main()
             cine.comprarBoleto();
             break;
         case 4:
+            cine.resumenCompra();
+            break;
+        case 5:
             cout << endl;
             cout << "Gracias por visitar Cine Meowing!" << endl;
             cout << "\tVuelva Pronto!"<< endl;
             cout << endl;
             break;
         }
-    } while (selec != 4);
+    } while (selec != 5);
 
     //Para impresion de boletos
     /*char corneris = -55, vertical = -70, cornerii = -56, cornersd = -69, cornerid = -68, horizontal = -51;

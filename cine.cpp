@@ -146,6 +146,22 @@ void Cine::comprarBoleto()
         this->sala[id-1].setFila(fil);
         this->sala[id-1].setNumero(col);
         this->sala[id-1].setAsiento();
+        this->boleto[cont].setColumna(col);
+        this->boleto[cont].setFila(fil);
+        this->boleto[cont].setSala(id);
+        this->boleto[cont].setPelicula();
+        cont++;
     }
+
+}
+
+void Cine::resumenCompra()
+{
+    cout << endl;
+    for(int i = 0; i < cont; i++){
+        this->boleto[i].getBoleto();
+        cout << endl;
+    }
+    cout << "Precio final: $" << cont*precioBoleto << "\n" << endl;
 
 }

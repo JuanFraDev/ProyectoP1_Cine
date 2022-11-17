@@ -8,10 +8,11 @@
 class Cine
 {
 private:
-    float precioBoleto;
+    float precioBoleto = 3.15;
     Pelicula pelicula[5];
-    Boleto boleto;
+    Boleto boleto[10];
     Sala sala[5];
+    int cont = 0;
 public:
     Cine();
     void setPeliculas();
@@ -19,6 +20,7 @@ public:
     void setSala();
     void mostrarSala();
     void comprarBoleto();
+    void resumenCompra();
 };
 
 #endif // CINE_H
