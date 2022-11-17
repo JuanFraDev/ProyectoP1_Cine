@@ -68,9 +68,10 @@ void Cine::mostrarSala()
 
 void Cine::comprarBoleto()
 {
-    string asiento, fila, columna, valid = "";
+    string asiento, fila, columna;
     int col, num, id;
     char fil;
+    int aux, auxTamanio;
     cout << "Ingrese el ID de la pelicula: ";
     cin >> id;
     while(id < 1 || id > 5){
@@ -82,11 +83,21 @@ void Cine::comprarBoleto()
     cout << "Seleccione los asientos: " << endl;
     this->sala[id-1].getSala();
     for(int i = 1; i <= num; i++){
-        cout << "\nIngrese su asiento: ";
+        cout << "\nIngrese el asiento " << i << ": ";
         getline(cin>>ws, asiento);
-        valid = asiento.substr(2,1);
+        auxTamanio = asiento.length();
         fila = asiento.substr(0,1);
         columna = asiento.substr(1,1);
+        aux = isdigit(asiento[1]);
+        while (aux == 0){
+            cout << "Error, fila no valida!" << endl;
+            cout << "\nIngrese el asiento " << i << ": ";
+            getline(cin>>ws, asiento);
+            auxTamanio = asiento.length();
+            fila = asiento.substr(0,1);
+            columna = asiento.substr(1,1);
+            aux = isdigit(asiento[1]);
+        }
         col = stoi(columna);
         if(fila == "A" || fila == "a"){
             fil = 'A';
@@ -101,11 +112,21 @@ void Cine::comprarBoleto()
         } else {
             fil = 'N';
         }
-        while ((col < 1 || col > 5) || (fil == 'N') || (valid != "")){
+        while ((col < 1 || col > 5) || (fil == 'N') || (auxTamanio < 2 || auxTamanio > 2)){
             cout << "Ingrese un asiento correcto [Ejemplo: A3]: ";
             getline(cin>>ws, asiento);
-            valid = asiento.substr(2,1);
+            auxTamanio = asiento.length();
             columna = asiento.substr(1,1);
+            aux = isdigit(asiento[1]);
+            while (aux == 0){
+                cout << "Error, fila no valida!" << endl;
+                cout << "\nIngrese el asiento " << i << ": ";
+                getline(cin>>ws, asiento);
+                auxTamanio = asiento.length();
+                fila = asiento.substr(0,1);
+                columna = asiento.substr(1,1);
+                aux = isdigit(asiento[1]);
+            }
             col = stoi(columna);
             fila = asiento.substr(0,1);
             if(fila == "A" || fila == "a"){
@@ -126,6 +147,5 @@ void Cine::comprarBoleto()
         this->sala[id-1].setNumero(col);
         this->sala[id-1].setAsiento();
     }
-
 
 }
