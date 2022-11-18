@@ -10,7 +10,7 @@ class Cine
 private:
     float precioBoleto = 3.15;
     Pelicula pelicula[5];
-    Boleto boleto[10];
+    Boleto boleto[30];
     Sala sala[5];
     int cont = 0;
 public:

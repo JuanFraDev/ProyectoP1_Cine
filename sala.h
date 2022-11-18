@@ -10,6 +10,7 @@ private:
     int numero;
     char fila;
     char sala[5][5];
+    int capacidad = 25;
 public:
     Sala();
     int getNumero() const;
@@ -19,6 +20,8 @@ public:
     void setSala();
     void getSala();
     bool setAsiento();
+    int getCapacidad() const;
+    void setCapacidad();
 };
 
 #endif // SALA_H

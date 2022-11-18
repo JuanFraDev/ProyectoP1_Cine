@@ -80,7 +80,7 @@ void Cine::comprarBoleto()
     }
     cout << "Ingrese la cantidad de boletos que desea comprar: ";
     cin >> num;
-    while(num < 1 || num > 25){
+    while(num < 1 || num > sala[id-1].getCapacidad()){
         cout << "Cantidad de asientos excedidos, ingrese nuevamente: ";
         cin >> num;
     }
@@ -222,6 +222,7 @@ void Cine::comprarBoleto()
             this->boleto[cont].setPelicula();
         }
         cont++;
+        this->sala[id-1].setCapacidad();
     }
 
 }

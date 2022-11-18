@@ -111,6 +111,16 @@ bool Sala::setAsiento()
     }
 }
 
+int Sala::getCapacidad() const
+{
+    return capacidad;
+}
+
+void Sala::setCapacidad()
+{
+    capacidad--;
+}
+
 Sala::Sala()
 {
 
