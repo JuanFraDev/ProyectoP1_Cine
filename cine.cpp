@@ -80,6 +80,10 @@ void Cine::comprarBoleto()
     }
     cout << "Ingrese la cantidad de boletos que desea comprar: ";
     cin >> num;
+    while(num < 1 || num > 25){
+        cout << "Cantidad de asientos excedidos, ingrese nuevamente: ";
+        cin >> num;
+    }
     cout << "Seleccione los asientos: " << endl;
     this->sala[id-1].getSala();
     for(int i = 1; i <= num; i++){
@@ -145,11 +149,78 @@ void Cine::comprarBoleto()
         }
         this->sala[id-1].setFila(fil);
         this->sala[id-1].setNumero(col);
-        this->sala[id-1].setAsiento();
         this->boleto[cont].setColumna(col);
         this->boleto[cont].setFila(fil);
         this->boleto[cont].setSala(id);
         this->boleto[cont].setPelicula();
+        while(this->sala[id-1].setAsiento() == false){
+            cout << "\nIngrese el asiento " << i << ": ";
+            getline(cin>>ws, asiento);
+            auxTamanio = asiento.length();
+            fila = asiento.substr(0,1);
+            columna = asiento.substr(1,1);
+            aux = isdigit(asiento[1]);
+            while (aux == 0){
+                cout << "Error, fila no valida!" << endl;
+                cout << "\nIngrese el asiento " << i << ": ";
+                getline(cin>>ws, asiento);
+                auxTamanio = asiento.length();
+                fila = asiento.substr(0,1);
+                columna = asiento.substr(1,1);
+                aux = isdigit(asiento[1]);
+            }
+            col = stoi(columna);
+            if(fila == "A" || fila == "a"){
+                fil = 'A';
+            } else if (fila == "B" || fila == "b"){
+                fil = 'B';
+            } else if (fila == "C" || fila == "c"){
+                fil = 'C';
+            } else if (fila == "D" || fila == "d"){
+                fil = 'D';
+            } else if (fila == "E" || fila == "e"){
+                fil = 'E';
+            } else {
+                fil = 'N';
+            }
+            while ((col < 1 || col > 5) || (fil == 'N') || (auxTamanio < 2 || auxTamanio > 2)){
+                cout << "Ingrese un asiento correcto [Ejemplo: A3]: ";
+                getline(cin>>ws, asiento);
+                auxTamanio = asiento.length();
+                columna = asiento.substr(1,1);
+                aux = isdigit(asiento[1]);
+                while (aux == 0){
+                    cout << "Error, fila no valida!" << endl;
+                    cout << "\nIngrese el asiento " << i << ": ";
+                    getline(cin>>ws, asiento);
+                    auxTamanio = asiento.length();
+                    fila = asiento.substr(0,1);
+                    columna = asiento.substr(1,1);
+                    aux = isdigit(asiento[1]);
+                }
+                col = stoi(columna);
+                fila = asiento.substr(0,1);
+                if(fila == "A" || fila == "a"){
+                    fil = 'A';
+                } else if (fila == "B" || fila == "b"){
+                    fil = 'B';
+                } else if (fila == "C" || fila == "c"){
+                    fil = 'C';
+                } else if (fila == "D" || fila == "d"){
+                    fil = 'D';
+                } else if (fila == "E" || fila == "e"){
+                    fil = 'E';
+                } else {
+                    fil = 'N';
+                }
+            }
+            this->sala[id-1].setFila(fil);
+            this->sala[id-1].setNumero(col);
+            this->boleto[cont].setColumna(col);
+            this->boleto[cont].setFila(fil);
+            this->boleto[cont].setSala(id);
+            this->boleto[cont].setPelicula();
+        }
         cont++;
     }
 
