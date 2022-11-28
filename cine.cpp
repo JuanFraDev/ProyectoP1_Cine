@@ -33,7 +33,7 @@ void Cine::setCedula(string cedula)
                 totalParcial = total/10;
                 totalParcial = (totalParcial + 1) * 10;
                 totalParcial = totalParcial - total;
-                if(totalParcial != final){
+                if(totalParcial != final && totalParcial != 10){
                     this->cedula = false;
                 }
             }
