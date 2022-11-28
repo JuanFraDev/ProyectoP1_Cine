@@ -33,7 +33,6 @@ void Boleto::setColumna(int newColumna)
 void Boleto::getBoleto()
 {
     char corneris = -55, vertical = -70, cornerii = -56, cornersd = -69, cornerid = -68, horizontal = -51;
-        string saludo = "Hello Wordl!", despedida = "Nos vemos mijin!";
         // linea superior
         cout << corneris;
         for(int i = 0; i < 70; i++){

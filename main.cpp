@@ -1,10 +1,12 @@
 #include <iostream>
+#include <stdlib.h>
 #include "cine.h"
 
 using namespace std;
 
 int main()
 {
+    char valid[1];
     Cine cine;
     cine.setPeliculas();
     cine.setSala();
@@ -18,21 +20,33 @@ int main()
         cout << "4. Resumen compra" << endl;
         cout << "5. Salir" << endl;
         cout << "Ingrese su opcion: ";
-        cin >> selec;
+        cin >> valid;
+        selec = atoi(valid);
+        while(selec < 1 || selec > 5){
+            cout << "Opcion no valida, ingrese nuevamente: ";
+            cin >> valid;
+            selec = atoi(valid);
+        }
         switch(selec){
         case 1:
-            cout << endl;
+            system("cls");
             cine.mostrarCartelera();
-            cout << endl;
+            system("cls");
             break;
         case 2:
+            system("cls");
             cine.mostrarSala();
+            system("cls");
             break;
         case 3:
+            system("cls");
             cine.comprarBoleto();
+            system("cls");
             break;
         case 4:
+            system("cls");
             cine.resumenCompra();
+            system("cls");
             break;
         case 5:
             cout << endl;
@@ -42,29 +56,5 @@ int main()
             break;
         }
     } while (selec != 5);
-
-    //Para impresion de boletos
-    /*char corneris = -55, vertical = -70, cornerii = -56, cornersd = -69, cornerid = -68, horizontal = -51;
-    string saludo = "Hello Wordl!", despedida = "Nos vemos mijin!";
-    cout << corneris;
-    for(int i = 0; i < 70; i++){
-        cout << horizontal;
-    }
-    cout << cornersd << endl;
-    cout << vertical << saludo;
-    for(int i = 0; i <= 70 - saludo.size(); i++){
-        cout << " ";
-    }
-    cout << vertical << endl;
-    cout << vertical << despedida;
-    for(int i = 0; i <= 70 - despedida.size(); i++){
-        cout << " ";
-    }
-    cout << vertical << endl;
-    cout << cornerii;
-    for(int i = 0; i < 70; i++){
-        cout << horizontal;
-    }
-    cout << cornerid << endl;*/
     return 0;
 }
