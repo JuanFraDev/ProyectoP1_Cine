@@ -32,6 +32,8 @@ public:
     void resumenCompra();
     void setCedula(string);
     bool getCedula() const;
+    int validNum(string);
+    char estFila(string);
 };
 
 #endif // CINE_H
