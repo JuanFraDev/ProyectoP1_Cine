@@ -144,7 +144,7 @@ void Cine::setSala()
 void Cine::mostrarSala()
 {
     int id;
-    char valid[1];
+    string valid;
     cout << "\t\t = = = VISUALIZACION DE SALA = = =\n" << endl;
     cout << "Ingrese el id de la pelicula: ";
     cin >> valid;

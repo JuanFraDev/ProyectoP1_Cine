@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    char valid[1];
+    string valid;
     Cine cine;
     cine.setPeliculas();
     cine.setSala();
@@ -20,13 +20,8 @@ int main()
         cout << "4. Resumen compra" << endl;
         cout << "5. Salir" << endl;
         cout << "Ingrese su opcion: ";
-        cin >> valid;
-        selec = atoi(valid);
-        while(selec < 1 || selec > 5){
-            cout << "Opcion no valida, ingrese nuevamente: ";
-            cin >> valid;
-            selec = atoi(valid);
-        }
+        getline(cin>>ws, valid);
+        selec = cine.validNum(valid);
         switch(selec){
         case 1:
             system("cls");
@@ -53,6 +48,9 @@ int main()
             cout << "Gracias por visitar Cine Meowing!" << endl;
             cout << "\tVuelva Pronto!"<< endl;
             cout << endl;
+            break;
+        default:
+            cout << "\n||Error: Opcion no valida..!||\n" << endl;
             break;
         }
     } while (selec != 5);
